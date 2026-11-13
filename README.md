@@ -2,7 +2,9 @@
 
 ## Table 5
 
-| Optimizer | Parameter | S1 (Settings used by<br>the baseline samplers) | **S2 (Settings used by<br>the VOSR sampler)** |
+Optimizer settings.
+
+| Optimizer | Parameter | S1 (settings used by<br>baseline samplers) | S2 (settings used by<br>the VOSR sampler) |
 |---|---|---|---|
 | SAC-Lagrangian | multiplier rate η<sub>λ</sub> | 10<sup>-2</sup> | 10<sup>-4</sup> |
 |  | initial multiplier λ<sub>0</sub> | 0.0 | 0.0 |
@@ -11,11 +13,29 @@
 | PCRPO | cost-gradient weight | 1.0 | 1.0 |
 | All | safety margin | 1.0 (d<sub>eff</sub> = 25) | 0.15 / 0.50 / 0.80† |
 
-† The S2 margin mapping is 0.15 for PointButton1, PointPush1, PointGoal2, CarButton1, CarGoal1 and Swimmer. 0.50 for Ant and HalfCheetah, and 0.80 for Hopper, Humanoid and Walker2d. Evaluation uses d = 25 in both settings.
+† 0.15 for PointButton1, PointPush1, PointGoal2, CarButton1, CarGoal1 and Swimmer; 0.50 for Ant and HalfCheetah; 0.80 for Hopper, Humanoid and Walker2d. Evaluation always uses d = 25.
+
+## Table 4
+
+Per-environment training budgets. The cost budget is d = 25 for all environments.
+
+| Environment | Total steps | Eval interval | Eval episodes | Max ep. length |
+|---|---|---|---|---|
+| SafeAntVelocity | 3,000,000 | 10,000 | 5 | 1000 |
+| SafeHalfCheetahVelocity | 3,000,000 | 10,000 | 5 | 1000 |
+| SafeHopperVelocity | 3,000,000 | 10,000 | 5 | 1000 |
+| SafeHumanoidVelocity | 3,000,000 | 10,000 | 5 | 1000 |
+| SafeSwimmerVelocity | 3,000,000 | 10,000 | 5 | 1000 |
+| SafeWalker2dVelocity | 3,000,000 | 10,000 | 5 | 1000 |
+| SafePointButton1 | 3,000,000 | 10,000 | 5 | 1000 |
+| SafePointPush1 | 3,000,000 | 10,000 | 5 | 1000 |
+| SafePointGoal2 | 3,000,000 | 10,000 | 5 | 1000 |
+| SafeCarButton1 | 3,000,000 | 10,000 | 5 | 1000 |
+| SafeCarGoal1 | 3,000,000 | 10,000 | 5 | 1000 |
 
 ## Table 15
 
-Training results using Setting S1 applied to the velocity tasks with the SAC-Lagrangian method.
+Main comparison, velocity tasks, Setting S1, SAC-Lagrangian. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -52,7 +72,7 @@ Training results using Setting S1 applied to the velocity tasks with the SAC-Lag
 
 ## Table 16
 
-Training results using Setting S1 applied to the velocity tasks with the CRPO method.
+Main comparison, velocity tasks, Setting S1, CRPO. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -89,7 +109,7 @@ Training results using Setting S1 applied to the velocity tasks with the CRPO me
 
 ## Table 17
 
-Training results using Setting S1 applied to the velocity tasks with the SAC-PCRPO method.
+Main comparison, velocity tasks, Setting S1, PCRPO. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -126,7 +146,7 @@ Training results using Setting S1 applied to the velocity tasks with the SAC-PCR
 
 ## Table 18
 
-Training results using Setting S1 applied to the navigation tasks with the SAC-Lagrangian method.
+Main comparison, navigation tasks, Setting S1, SAC-Lagrangian. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -158,7 +178,7 @@ Training results using Setting S1 applied to the navigation tasks with the SAC-L
 
 ## Table 19
 
-Training results using Setting S1 applied to the navigation tasks with the CRPO method.
+Main comparison, navigation tasks, Setting S1, CRPO. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -190,7 +210,7 @@ Training results using Setting S1 applied to the navigation tasks with the CRPO 
 
 ## Table 20
 
-Training results using Setting S1 applied to the navigation tasks with the PCRPO method.
+Main comparison, navigation tasks, Setting S1, PCRPO. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -222,7 +242,7 @@ Training results using Setting S1 applied to the navigation tasks with the PCRPO
 
 ## Table 21
 
-Training results using Setting S2 applied to the SAC-Lagrangian method.
+Tight optimizer settings, Setting S2, SAC-Lagrangian. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -284,7 +304,7 @@ Training results using Setting S2 applied to the SAC-Lagrangian method.
 
 ## Table 22
 
-Training results using Setting S2 applied to the CRPO method.
+Tight optimizer settings, Setting S2, CRPO. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -346,7 +366,7 @@ Training results using Setting S2 applied to the CRPO method.
 
 ## Table 23
 
-Training results using Setting S2 applied to the PCRPO method.
+Tight optimizer settings, Setting S2, PCRPO. Final return, cost, and violation fraction (mean ± 95% CI). VOSR entries are shown in bold.
 
 | Environment | Sampler | Return | Cost | Violation |
 |---|---|---|---|---|
@@ -408,7 +428,7 @@ Training results using Setting S2 applied to the PCRPO method.
 
 ## Table 1
 
-Cost-gradient variance and training violation fraction, all eleven environments.
+Cost-gradient variance relative to Uniform Replay (lower is better). The last row reports the mean training violation fraction across 11 environments and three optimizers.
 
 | Environment | Uniform | TD-PER | Safety-PER | Unc.-PER | **VOSR** |
 |---|---|---|---|---|---|
@@ -428,7 +448,7 @@ Cost-gradient variance and training violation fraction, all eleven environments.
 
 ## Table 8
 
-Exact, tempered, and deployed sampling proposals.
+Variance of the estimates for the ideal, tempered and deployed samplers, relative to Uniform sampler.
 
 | Proposal | Var(Z̄<sup>c</sup>) | Var(Z̄<sup>r</sup>) | D<sub>KL</sub>(q‖b) | ESS/\|𝒫\| |
 |---|---|---|---|---|
@@ -437,9 +457,37 @@ Exact, tempered, and deployed sampling proposals.
 | Tempered q<sub>ε</sub><sup>⋆</sup>, raw scores | 0.46 | 0.48 | 0.31 | 0.64 |
 | **Deployed VOSR** | **0.52** | **0.55** | **0.24** | **0.69** |
 
+## Table 3
+
+Shared agent and network hyperparameters, applied to every method.
+
+| Hyperparameter | Value |
+|---|---|
+| Discount γ | 0.99 |
+| Target smoothing τ (Polyak) | 0.005 |
+| Actor learning rate | 3 × 10<sup>-4</sup> |
+| Critic learning rate (both critics) | 3 × 10<sup>-4</sup> |
+| Replay buffer capacity | 1,000,000 (no transition is discarded) |
+| Importance weight w<sub>i</sub> | same for all samplers, clipped to [0.1, 10] (C = 10) |
+| Sampling correction b(i)/q(i) | applied to all samplers, not clipped |
+| Reward critic | twin network (k = 2) |
+| Cost critic ensemble size | 3 |
+| Candidate minibatch pool | 512 (drawn uniformly, with replacement) |
+| Reference batch (VOSR) | 256 (drawn separately from the pool) |
+| Training minibatch size | 256 (drawn from the pool with replacement) |
+| Warmup (uniform-random) steps | 10,000 |
+| Train frequency | every 4 environment steps |
+| Policy hidden layers | 2 × 128, tanh |
+| Critic hidden layers | 2 × 128, ReLU |
+| Policy log σ range | [−2.0, 2.0] |
+| State-ratio network β<sub>ψ</sub> | 2 × 128, softplus |
+| State-ratio learning rate | 3 × 10<sup>-4</sup> |
+| State-ratio refresh interval | every 250 steps |
+| Cost signal for the optimizer | EMA (0.9) of episodic training cost, all methods |
+
 ## Table 11
 
-Wall-clock, throughput, GPU and CPU memory, and extra passes.
+Compute cost of each sampler, measured for eleven environments, five seeds, 3×10<sup>6</sup> steps each and averaged over the eleven environments. Time is wall-clock seconds per 10<sup>3</sup> environment steps, GPU-h is the GPU time for one full 3×10<sup>6</sup>-step run. Overhead is the extra time per step relative to Uniform Replay with the same optimizer. Extra passes counts the forward/backward passes per update beyond those of Uniform Replay.
 
 | Optimizer | Sampler | Time/10<sup>3</sup> steps (s) | Updates/s | GPU-h/run | Overhead | GPU mem. (GB) | CPU mem. (GB) | Extra passes |
 |---|---|---|---|---|---|---|---|---|
@@ -461,7 +509,7 @@ Wall-clock, throughput, GPU and CPU memory, and extra passes.
 
 ## Table 12
 
-GPU training time by environment, optimizer and sampler.
+GPU time (hours) for one training run of 3×10<sup>6</sup> environment steps, for every environment, base optimizer and sampler (mean over five seeds, one run per GPU). The last column is the extra wall-clock time per step of VOSR relative to Uniform Replay. The Mean rows are the averages of the eleven environment rows above them. The overhead in the Mean row is calculated using the mean execution times, following Table 11. Averaging the overheads across the eleven environments gives 97%, 94%, and 92% for SAC-Lagrangian, CRPO, and PCRPO, respectively.
 
 | Optimizer | Environment | Uniform | TD-PER | Safety-PER | Unc.-PER | **VOSR** | **VOSR overhead** |
 |---|---|---|---|---|---|---|---|
@@ -504,7 +552,7 @@ GPU training time by environment, optimizer and sampler.
 
 ## Table 14
 
-Equal-wall-clock comparison.
+Equal wall-clock comparison using SAC-Lagrangian, averaged over Ant, Hopper, Walker2d, and CarButton1 across five seeds. Each baseline is trained for the same time as VOSR takes for 3×10<sup>6</sup> steps, allowing more environment steps. The bold VOSR results come from the main-comparison runs (Tables 15 and 18). The separate ablation runs in Table 13 give a slightly different mean return (1217.3 versus 1262.4). GPU time is approximately 17.2 hours per run for all methods.
 
 | Sampler | Environment steps reached | Return | Cost | Viol. |
 |---|---|---|---|---|
@@ -516,7 +564,7 @@ Equal-wall-clock comparison.
 
 ## Table 9
 
-Clipping diagnostics by environment.
+Clipping diagnostics, averaged over seeds and checkpoints.
 
 | Environment | Clipped weights (%) | \|δ<sub>c</sub><sup>∥</sup>\| | \|δ<sub>r</sub><sup>∥</sup>\| |
 |---|---|---|---|
@@ -534,21 +582,21 @@ Clipping diagnostics by environment.
 
 ## Table 2
 
-Validity of theoretical claims for idealized and deployed samplers.
+Claims that hold in the idealized setting and for the deployed algorithm.
 
 | Claim | Idealized (exact w, critics, fixed q) | Deployed (clipped w, learned β, pool, tempered softmax) |
 |---|---|---|
 | Mean gradient is the same for every q (Lemma 1) | Yes | Yes (Lemma 2, Proposition 3) |
-| Mean gradient equals the true gradient | Yes | No; shifted by δ<sub>r</sub> and δ<sub>c</sub>, identically across samplers (Table 9) |
+| Mean gradient equals the true gradient | Yes | No; shifted by δ<sub>r</sub>, δ<sub>c</sub>, same for all samplers, measured in Table 9 |
 | q<sup>⋆</sup> minimizes σ<sub>c</sub><sup>2</sup> + κσ<sub>r</sub><sup>2</sup> (Theorem 1) | Yes | Deployed sampler is a surrogate. The gap is measured in Table 8 |
 | Theorem 2(a) | Yes | Yes, plus L<sub>𝓕</sub> max(‖δ<sub>r</sub>‖, ‖δ<sub>c</sub>‖); PCRPO up to projection curvature |
-| Theorem 2(b) | Yes | Yes; the cost estimate comes from training episodes and the bound does not depend on the sampler |
-| Theorem 2(c) | Yes, for any q | Yes, using measured σ<sub>c</sub><sup>2</sup> and σ<sub>r</sub><sup>2</sup>; gradient directions are estimated from the reference batch |
-| Same stationary set as Uniform Replay (Theorem 3) | Yes, equal to the KKT set of the base optimizer | Yes, but the shared set can be shifted by the clipping bias |
+| Theorem 2(b) | Yes | Yes; Ĵ<sub>c</sub> comes from training episodes, so the bound does not depend on q |
+| Theorem 2(c) | Yes, for any q | Yes with the measured σ<sub>c</sub><sup>2</sup>, σ<sub>r</sub><sup>2</sup>; directions g̃<sub>c</sub>, g̃<sub>r</sub><sup>+</sup> are estimated from the reference batch |
+| Same stationary set as Uniform Replay (Theorem 3) | Yes, equal to the KKT set of 𝓕 | Yes, but the shared set can be shifted by the clipping bias |
 
 ## Table 13
 
-Candidate pool, density-ratio refresh, clipping and sampler ablations.
+Ablations, mean over the four ablation environments. Default values are marked \*. Viol. is the training-episode violation fraction, as in Tables 14–23. Return is given as mean ± 95% Confidence Interval (CI) over five seeds. All entries, including the default (pool size 512), come from the separate ablation runs (five seeds), so the default return (1217.3) differs slightly from the main-comparison value in Table 14. Time is wall-clock seconds per 10<sup>3</sup> steps.
 
 | Factor | Value | Return | Cost | Viol. | Var(Z̄<sup>c</sup>) | Time / 10<sup>3</sup> steps |
 |---|---|---|---|---|---|---|
@@ -582,7 +630,7 @@ Candidate pool, density-ratio refresh, clipping and sampler ablations.
 
 ## Table 10
 
-Wrong-direction update probability by base optimizer.
+Measured rate of wrong-direction updates on the chosen branch.
 
 | Sampler | SAC-Lag. P(Z̄<sup>c</sup> ≤ 0) | SAC-Lag. P(Z̄<sup>r</sup> ≤ 0) | CRPO P(Z̄<sup>c</sup> ≤ 0) | CRPO P(Z̄<sup>r</sup> ≤ 0) | PCRPO P(Z̄<sup>c</sup> ≤ 0) | PCRPO P(Z̄<sup>r</sup> ≤ 0) |
 |---|---|---|---|---|---|---|
@@ -594,7 +642,7 @@ Wrong-direction update probability by base optimizer.
 
 ## Table 6
 
-VOSR settings common to environments and optimizers.
+VOSR settings, identical in all environments.
 
 | Parameter | Value (all environments, all optimizers) |
 |---|---|
