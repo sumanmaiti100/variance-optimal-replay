@@ -1,15 +1,15 @@
-# **Tables Used in Responses to Reviewer Comments.** The table numbers correspond to those in the submitted revised manuscript. Table 1 appears in the main paper, while the remaining tables appear in the supplementary material/appendix. All changes made to the manuscript are marked in blue in the manuscript.
+### **Tables Used in Responses to Reviewer Comments.** The table numbers correspond to those in the submitted revised manuscript. Table 1 appears in the main paper, while the remaining tables appear in the supplementary material/appendix. All changes made to the manuscript are marked in blue in the manuscript.
 
 ## Table 5
 
 | Optimizer | Parameter | S1 (Settings used by<br>the baseline samplers) | **S2 (Settings used by<br>the VOSR sampler)** |
 |---|---|---|---|
-| SAC-Lagrangian | multiplier rate $\eta_{\lambda}$ | 10$^{-2}$ | 10$^{-4}$ |
-|  | initial multiplier $\lambda_{\mathrm{0}}$ | 0.0 | 0.0 |
-|  | multiplier cap $\lambda_{\mathrm{max}}$ | none | 30.0 |
+| SAC-Lagrangian | multiplier rate η<sub>λ</sub> | 10<sup>-2</sup> | 10<sup>-4</sup> |
+|  | initial multiplier λ<sub>0</sub> | 0.0 | 0.0 |
+|  | multiplier cap λ<sub>max</sub> | none | 30.0 |
 | CRPO | branch-switch tolerance | 0.0 | 0.0 |
 | PCRPO | cost-gradient weight | 1.0 | 1.0 |
-| All | safety margin | 1.0 (d$_{\mathrm{eff}}$ = 25) | 0.15 / 0.50 / 0.80† |
+| All | safety margin | 1.0 (d<sub>eff</sub> = 25) | 0.15 / 0.50 / 0.80† |
 
 † The S2 margin mapping is 0.15 for PointButton1, PointPush1, PointGoal2, CarButton1, CarGoal1 and Swimmer. 0.50 for Ant and HalfCheetah, and 0.80 for Hopper, Humanoid and Walker2d. Evaluation uses d = 25 in both settings.
 
@@ -430,18 +430,18 @@ Cost-gradient variance and training violation fraction, all eleven environments.
 
 Exact, tempered, and deployed sampling proposals.
 
-| Proposal | Var($\bar{Z}^{c}$) | Var($\bar{Z}^{r}$) | D$_{\mathrm{KL}}$(q$\Vert$b) | ESS/$\vert\mathcal{P}\vert$ |
+| Proposal | Var(Z̄<sup>c</sup>) | Var(Z̄<sup>r</sup>) | D<sub>KL</sub>(q‖b) | ESS/\|𝒫\| |
 |---|---|---|---|---|
 | Uniform b | 1.00 | 1.00 | 0 | 1.00 |
-| Exact q$^{\star}$ (Theorem 1) | 0.32 | 0.33 | 0.55 | 0.43 |
-| Tempered q$_{\epsilon}^{\star}$, raw scores | 0.46 | 0.48 | 0.31 | 0.64 |
+| Exact q<sup>⋆</sup> (Theorem 1) | 0.32 | 0.33 | 0.55 | 0.43 |
+| Tempered q<sub>ε</sub><sup>⋆</sup>, raw scores | 0.46 | 0.48 | 0.31 | 0.64 |
 | **Deployed VOSR** | **0.52** | **0.55** | **0.24** | **0.69** |
 
 ## Table 11
 
 Wall-clock, throughput, GPU and CPU memory, and extra passes.
 
-| Optimizer | Sampler | Time/10$^{3}$ steps (s) | Updates/s | GPU-h/run | Overhead | GPU mem. (GB) | CPU mem. (GB) | Extra passes |
+| Optimizer | Sampler | Time/10<sup>3</sup> steps (s) | Updates/s | GPU-h/run | Overhead | GPU mem. (GB) | CPU mem. (GB) | Extra passes |
 |---|---|---|---|---|---|---|---|---|
 | SAC-Lag. | Uniform | 11.3 | 23.2 | 9.4 | – | 1.26 | 2.87 | 0 |
 |  | TD-PER | 12.9 | 20.3 | 10.7 | +14% | 1.26 | 2.99 | 1 |
@@ -518,7 +518,7 @@ Equal-wall-clock comparison.
 
 Clipping diagnostics by environment.
 
-| Environment | Clipped weights (%) | $\vert\delta_{\mathrm{c}}^{\parallel}\vert$ | $\vert\delta_{\mathrm{r}}^{\parallel}\vert$ |
+| Environment | Clipped weights (%) | \|δ<sub>c</sub><sup>∥</sup>\| | \|δ<sub>r</sub><sup>∥</sup>\| |
 |---|---|---|---|
 | Ant | 4.4 | 0.031 | 0.030 |
 | HalfCheetah | 4.6 | 0.032 | 0.031 |
@@ -536,31 +536,31 @@ Clipping diagnostics by environment.
 
 Validity of theoretical claims for idealized and deployed samplers.
 
-| Claim | Idealized (exact w, critics, fixed q) | Deployed (clipped w, learned $\beta$, pool, tempered softmax) |
+| Claim | Idealized (exact w, critics, fixed q) | Deployed (clipped w, learned β, pool, tempered softmax) |
 |---|---|---|
 | Mean gradient is the same for every q (Lemma 1) | Yes | Yes (Lemma 2, Proposition 3) |
-| Mean gradient equals the true gradient | Yes | No; shifted by $\delta_{\mathrm{r}}$ and $\delta_{\mathrm{c}}$, identically across samplers (Table 9) |
-| q$^{\star}$ minimizes $\sigma_{\mathrm{c}}^{2}$ + $\kappa\sigma_{\mathrm{r}}^{2}$ (Theorem 1) | Yes | Deployed sampler is a surrogate. The gap is measured in Table 8 |
-| Theorem 2(a) | Yes | Yes, plus L$_{\mathcal{F}}$ max($\Vert\delta_{\mathrm{r}}\Vert$, $\Vert\delta_{\mathrm{c}}\Vert$); PCRPO up to projection curvature |
+| Mean gradient equals the true gradient | Yes | No; shifted by δ<sub>r</sub> and δ<sub>c</sub>, identically across samplers (Table 9) |
+| q<sup>⋆</sup> minimizes σ<sub>c</sub><sup>2</sup> + κσ<sub>r</sub><sup>2</sup> (Theorem 1) | Yes | Deployed sampler is a surrogate. The gap is measured in Table 8 |
+| Theorem 2(a) | Yes | Yes, plus L<sub>𝓕</sub> max(‖δ<sub>r</sub>‖, ‖δ<sub>c</sub>‖); PCRPO up to projection curvature |
 | Theorem 2(b) | Yes | Yes; the cost estimate comes from training episodes and the bound does not depend on the sampler |
-| Theorem 2(c) | Yes, for any q | Yes, using measured $\sigma_{\mathrm{c}}^{2}$ and $\sigma_{\mathrm{r}}^{2}$; gradient directions are estimated from the reference batch |
+| Theorem 2(c) | Yes, for any q | Yes, using measured σ<sub>c</sub><sup>2</sup> and σ<sub>r</sub><sup>2</sup>; gradient directions are estimated from the reference batch |
 | Same stationary set as Uniform Replay (Theorem 3) | Yes, equal to the KKT set of the base optimizer | Yes, but the shared set can be shifted by the clipping bias |
 
 ## Table 13
 
 Candidate pool, density-ratio refresh, clipping and sampler ablations.
 
-| Factor | Value | Return | Cost | Viol. | Var($\bar{Z}^{c}$) | Time / 10$^{3}$ steps |
+| Factor | Value | Return | Cost | Viol. | Var(Z̄<sup>c</sup>) | Time / 10<sup>3</sup> steps |
 |---|---|---|---|---|---|---|
 | Pool size | 128 | 1105.8±29.6 | 4.9 | 0.055 | 0.85 | 16.0 |
 |  | 256 | 1118.6±25.4 | 4.6 | 0.050 | 0.73 | 17.5 |
 |  | 512\* | 1217.3±24.4 | 2.8 | 0.025 | 0.52 | 20.5 |
 |  | 1024 | 1058.2±42.1 | 5.3 | 0.055 | 0.92 | 26.6 |
 |  | 2048 | 1042.3±78.0 | 5.2 | 0.055 | 0.83 | 38.7 |
-| $\beta$ refresh | 50 | 958.3±73.3 | 5.2 | 0.055 | 0.97 | 28.6 |
+| β refresh | 50 | 958.3±73.3 | 5.2 | 0.055 | 0.97 | 28.6 |
 |  | 250\* | 1217.3±24.4 | 2.8 | 0.025 | 0.52 | 20.5 |
 |  | 1000 | 1090.3±56.3 | 5.2 | 0.057 | 0.84 | 19.0 |
-|  | $\beta\equiv$1 | 1102.3±59.7 | 4.6 | 0.044 | 0.76 | 18.5 |
+|  | β ≡ 1 | 1102.3±59.7 | 4.6 | 0.044 | 0.76 | 18.5 |
 | Clip bound C | 2 | 1041.1±25.8 | 5.4 | 0.061 | 0.92 | 20.5 |
 |  | 5 | 1140.4±69.6 | 6.6 | 0.073 | 0.75 | 20.5 |
 |  | 10\* | 1217.3±24.4 | 2.8 | 0.025 | 0.52 | 20.5 |
@@ -568,13 +568,13 @@ Candidate pool, density-ratio refresh, clipping and sampler ablations.
 |  | none | 1063.0±43.0 | 5.1 | 0.052 | 0.88 | 20.5 |
 | Sampler form | deployed\* | 1217.3±24.4 | 2.8 | 0.025 | 0.52 | 20.5 |
 |  | raw tempered | 1083.0±74.4 | 5.3 | 0.060 | 0.82 | 19.5 |
-|  | 0.9$q^\star$+0.1b | 995.4±59.7 | 5.2 | 0.055 | 0.94 | 21.5 |
-| $\eta$ | 0.1 | 1132.6±56.0 | 5.7 | 0.066 | 0.75 | 20.5 |
+|  | 0.9q<sup>⋆</sup>+0.1b | 995.4±59.7 | 5.2 | 0.055 | 0.94 | 21.5 |
+| η | 0.1 | 1132.6±56.0 | 5.7 | 0.066 | 0.75 | 20.5 |
 |  | 0.5 | 1051.9±58.1 | 5.3 | 0.055 | 0.98 | 20.5 |
 |  | 1.0\* | 1217.3±24.4 | 2.8 | 0.025 | 0.52 | 20.5 |
 |  | 2.0 | 1066.1±72.8 | 6.0 | 0.065 | 0.90 | 20.5 |
 |  | 5.0 | 1115.5±37.6 | 6.7 | 0.071 | 0.82 | 20.5 |
-| $\kappa$ | 0.0 | 1035.2±33.3 | 4.8 | 0.048 | 0.88 | 20.5 |
+| κ | 0.0 | 1035.2±33.3 | 4.8 | 0.048 | 0.88 | 20.5 |
 |  | 0.15 | 1139.3±16.3 | 5.4 | 0.060 | 0.79 | 20.5 |
 |  | 0.35 | 1049.1±96.1 | 5.3 | 0.060 | 0.87 | 20.5 |
 |  | 0.7 | 1106.6±14.1 | 5.0 | 0.052 | 0.77 | 20.5 |
@@ -584,7 +584,7 @@ Candidate pool, density-ratio refresh, clipping and sampler ablations.
 
 Wrong-direction update probability by base optimizer.
 
-| Sampler | SAC-Lag. P($\bar{Z}^{c}$ ≤ 0) | SAC-Lag. P($\bar{Z}^{r}$ ≤ 0) | CRPO P($\bar{Z}^{c}$ ≤ 0) | CRPO P($\bar{Z}^{r}$ ≤ 0) | PCRPO P($\bar{Z}^{c}$ ≤ 0) | PCRPO P($\bar{Z}^{r}$ ≤ 0) |
+| Sampler | SAC-Lag. P(Z̄<sup>c</sup> ≤ 0) | SAC-Lag. P(Z̄<sup>r</sup> ≤ 0) | CRPO P(Z̄<sup>c</sup> ≤ 0) | CRPO P(Z̄<sup>r</sup> ≤ 0) | PCRPO P(Z̄<sup>c</sup> ≤ 0) | PCRPO P(Z̄<sup>r</sup> ≤ 0) |
 |---|---|---|---|---|---|---|
 | Uniform | 0.298 | 0.298 | 0.298 | 0.297 | 0.298 | 0.296 |
 | TD-PER | 0.343 | 0.342 | 0.342 | 0.342 | 0.342 | 0.342 |
@@ -598,9 +598,9 @@ VOSR settings common to environments and optimizers.
 
 | Parameter | Value (all environments, all optimizers) |
 |---|---|
-| Temperature $\eta$ | 1.0 (on standardized scores) |
-| Score weight $\kappa$ | 1.5 |
-| Candidate pool size $\vert\mathcal{P}\vert$ | 512 |
-| Reference batch for $\tilde{g}_{\mathrm{c}}$, $\tilde{g}_{\mathrm{r}}^{+}$ | 256, drawn separately from the pool |
-| Score clipping | median ± 6.0$\times$MAD |
-| Score floor inside $\zeta_{\mathrm{i}}$ | 10$^{-12}$ |
+| Temperature η | 1.0 (on standardized scores) |
+| Score weight κ | 1.5 |
+| Candidate pool size \|𝒫\| | 512 |
+| Reference batch for g̃<sub>c</sub>, g̃<sub>r</sub><sup>+</sup> | 256, drawn separately from the pool |
+| Score clipping | median ± 6.0×MAD |
+| Score floor inside ζ<sub>i</sub> | 10<sup>-12</sup> |
