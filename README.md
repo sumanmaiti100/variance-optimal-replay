@@ -566,19 +566,19 @@ Equal-wall-clock comparison.
 
 Clipping diagnostics by environment.
 
-| Environment | Clipped weights (%) | \|δ<sub>c</sub><sup>∥</sup>\| | \|δ<sub>r</sub><sup>∥</sup>\| |
-|---|---|---|---|
-| Ant | 4.4 | 0.031 | 0.030 |
-| HalfCheetah | 4.6 | 0.032 | 0.031 |
-| Hopper | 4.8 | 0.033 | 0.033 |
-| Humanoid | 4.4 | 0.032 | 0.032 |
-| Swimmer | 4.2 | 0.029 | 0.033 |
-| Walker2d | 4.5 | 0.031 | 0.030 |
-| PointButton1 | 4.9 | 0.030 | 0.030 |
-| PointPush1 | 4.1 | 0.032 | 0.035 |
-| PointGoal2 | 4.0 | 0.031 | 0.032 |
-| CarButton1 | 4.6 | 0.030 | 0.029 |
-| CarGoal1 | 4.2 | 0.033 | 0.031 |
+| Environment  | Clipped weights (%) | \|δ<sub>c</sub><sup>\|\|</sup>\| | \|δ<sub>r</sub><sup>\|\|</sup>\| |
+| ------------ | ------------------- | -------------------------------- | -------------------------------- |
+| Ant          | 4.4                 | 0.031                            | 0.030                            |
+| HalfCheetah  | 4.6                 | 0.032                            | 0.031                            |
+| Hopper       | 4.8                 | 0.033                            | 0.033                            |
+| Humanoid     | 4.4                 | 0.032                            | 0.032                            |
+| Swimmer      | 4.2                 | 0.029                            | 0.033                            |
+| Walker2d     | 4.5                 | 0.031                            | 0.030                            |
+| PointButton1 | 4.9                 | 0.030                            | 0.030                            |
+| PointPush1   | 4.1                 | 0.032                            | 0.035                            |
+| PointGoal2   | 4.0                 | 0.031                            | 0.032                            |
+| CarButton1   | 4.6                 | 0.030                            | 0.029                            |
+| CarGoal1     | 4.2                 | 0.033                            | 0.031                            |
 
 ## Table 2
 
